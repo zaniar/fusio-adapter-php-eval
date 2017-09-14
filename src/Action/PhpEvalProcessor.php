@@ -19,60 +19,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Fusio\Adapter\Php\Action;
+namespace Fusio\Adapter\PhpEval\Action;
 
-use Fusio\Engine\ActionAbstract;
 use Fusio\Engine\ContextInterface;
+use Fusio\Engine\Form\BuilderInterface;
+use Fusio\Engine\Form\ElementFactoryInterface;
 use Fusio\Engine\ParametersInterface;
 use Fusio\Engine\RequestInterface;
-use Fusio\Engine\ResponseInterface;
 
 /**
- * PhpEngine
+ * PhpProcessor
  *
  * @author  Christoph Kappestein <christoph.kappestein@gmail.com>
  * @license http://www.gnu.org/licenses/agpl-3.0
  * @link    http://fusio-project.org
  */
-class PhpEngine extends ActionAbstract
+class PhpProcessor extends PhpEngine
 {
-    /**
-     * @var string
-     */
-    protected $file;
-
-    public function __construct($file = null)
+    public function getName()
     {
-        $this->file = $file;
-    }
-
-    public function setFile($file)
-    {
-        $this->file = $file;
+        return 'PHP-Eval-Processor';
     }
 
     public function handle(RequestInterface $request, ParametersInterface $configuration, ContextInterface $context)
     {
-        $resp = runScript($this->file, [
-            'request' => $request,
-            'context' => $context,
-            'connector' => $this->connector,
-            'response' => $this->response,
-            'processor' => $this->processor,
-            'logger' => $this->logger,
-            'cache' => $this->cache,
-        ]);
-
-        if ($resp instanceof ResponseInterface) {
-            return $resp;
-        } else {
-            return $this->response->build(204, [], []);
-        }
+        $this->setCode($configuration->get('code'));
+        return parent::handle($request, $configuration, $context);
     }
-}
-
-function runScript($file, array $ctx)
-{
-    extract($ctx);
-    return require $file;
+    
+    public function configure(BuilderInterface $builder, ElementFactoryInterface $elementFactory)
+    {
+        $builder->add($elementFactory->newTextArea('code', 'Code', 'php', 'Click <a ng-click="help.showDialog(\'help/action/php.md\')">here</a> for more information about the PHP API.'));
+    }
 }

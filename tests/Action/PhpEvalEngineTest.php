@@ -19,9 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Fusio\Adapter\Php\Tests\Action;
+namespace Fusio\Adapter\PhpEval\Tests\Action;
 
-use Fusio\Adapter\Php\Action\PhpEngine;
+use Fusio\Adapter\PhpEval\Action\PhpEvalEngine;
 use Fusio\Engine\Form\Builder;
 use Fusio\Engine\Form\Container;
 use Fusio\Engine\ResponseInterface;
@@ -29,13 +29,13 @@ use Fusio\Engine\Test\EngineTestCaseTrait;
 use PSX\Record\Record;
 
 /**
- * PhpEngineTest
+ * PhpEvalEngineTest
  *
  * @author  Christoph Kappestein <christoph.kappestein@gmail.com>
  * @license http://www.gnu.org/licenses/agpl-3.0
  * @link    http://fusio-project.org
  */
-class PhpEngineTest extends \PHPUnit_Framework_TestCase
+class PhpEvalEngineTest extends \PHPUnit_Framework_TestCase
 {
     use EngineTestCaseTrait;
 
@@ -46,7 +46,7 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
 
     public function testHandle()
     {
-        $action = $this->getActionFactory()->factory(PhpEngine::class);
+        $action = $this->getActionFactory()->factory(PhpEvalEngine::class);
         $action->setFile(__DIR__ . '/script.php');
 
         // handle request

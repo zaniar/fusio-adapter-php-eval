@@ -19,9 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Fusio\Adapter\Php\Tests\Action;
+namespace Fusio\Adapter\PhpEval\Tests\Action;
 
-use Fusio\Adapter\Php\Action\PhpProcessor;
+use Fusio\Adapter\PhpEval\Action\PhpEvalProcessor;
 use Fusio\Engine\Form\Builder;
 use Fusio\Engine\Form\Container;
 use Fusio\Engine\ResponseInterface;
@@ -29,13 +29,13 @@ use Fusio\Engine\Test\EngineTestCaseTrait;
 use PSX\Record\Record;
 
 /**
- * PhpProcessorTest
+ * PhpEvalProcessorTest
  *
  * @author  Christoph Kappestein <christoph.kappestein@gmail.com>
  * @license http://www.gnu.org/licenses/agpl-3.0
  * @link    http://fusio-project.org
  */
-class PhpProcessorTest extends \PHPUnit_Framework_TestCase
+class PhpEvalProcessorTest extends \PHPUnit_Framework_TestCase
 {
     use EngineTestCaseTrait;
 
@@ -46,7 +46,7 @@ class PhpProcessorTest extends \PHPUnit_Framework_TestCase
 
     public function testHandle()
     {
-        $action = $this->getActionFactory()->factory(PhpProcessor::class);
+        $action = $this->getActionFactory()->factory(PhpEvalProcessor::class);
 
         // handle request
         $response = $action->handle(
@@ -76,7 +76,7 @@ JSON;
 
     public function testGetForm()
     {
-        $action  = $this->getActionFactory()->factory(PhpProcessor::class);
+        $action  = $this->getActionFactory()->factory(PhpEvalProcessor::class);
         $builder = new Builder();
         $factory = $this->getFormElementFactory();
 

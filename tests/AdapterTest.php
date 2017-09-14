@@ -19,9 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Fusio\Adapter\Php\Tests;
+namespace Fusio\Adapter\PhpEval\Tests;
 
-use Fusio\Adapter\Php\Adapter;
+use Fusio\Adapter\PhpEval\Adapter;
 use Fusio\Engine\Test\AdapterTestCase;
 
 /**
