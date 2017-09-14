@@ -26,12 +26,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Fusio\\Adapter\\Php\\": "src/"
+      "Fusio\\Adapter\\PhpEval\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Fusio\\Adapter\\Php\\Tests\\": "tests/"
+      "Fusio\\Adapter\\PhpEval\\Tests\\": "tests/"
     }
   }
 }
