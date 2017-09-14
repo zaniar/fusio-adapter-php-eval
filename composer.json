@@ -1,5 +1,5 @@
 {
-  "name": "fusio/adapter-php-eval",
+  "name": "zaniar/fusio-adapter-php-eval",
   "description": "Write the endpoint logic in simple PHP code",
   "homepage": "http://fusio-project.org",
   "keywords": ["fusio-adapter"],
@@ -9,6 +9,11 @@
       "name": "Christoph Kappestein",
       "email": "christoph.kappestein@gmail.com",
       "homepage": "http://christoph.kappestein.com"
+    },
+    {
+      "name": "Edwin Zaniar Putra",
+      "email": "edwin.zaniar@gmail.com",
+      "homepage": "http://zaniar.web.id"
     }
   ],
   "require": {
