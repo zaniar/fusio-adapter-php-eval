@@ -28,13 +28,13 @@ use Fusio\Engine\RequestInterface;
 use Fusio\Engine\ResponseInterface;
 
 /**
- * PhpEngine
+ * PhpEvalEngine
  *
  * @author  Christoph Kappestein <christoph.kappestein@gmail.com>
  * @license http://www.gnu.org/licenses/agpl-3.0
  * @link    http://fusio-project.org
  */
-class PhpEngine extends ActionAbstract
+class PhpEvalEngine extends ActionAbstract
 {
     /**
      * @var string
